@@ -23,4 +23,4 @@ export const colors = {
         "info-base": "#2AA1D9",
         "info-dark": "#1D7096"
     }
-}
+} as const

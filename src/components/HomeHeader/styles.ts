@@ -5,11 +5,10 @@ import { typography } from "../../theme/fontFamily";
 export const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
-        margin: 20,
         justifyContent: "space-between",
         alignItems: "center",
         paddingBottom: 20,
-        borderBottomWidth: 1,
+        borderBottomWidth: 0.2,
         borderBottomColor: colors.gray[400]
     },
     content: {

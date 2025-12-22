@@ -10,8 +10,8 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.principal["purple-base"],
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 20,
-        paddingHorizontal: 14
+        borderRadius: 25,
+        paddingHorizontal: 18
 
     },
     title: {
