@@ -1,20 +1,27 @@
-import { View, Text } from "react-native"
+import { View, Text, TouchableOpacity, TouchableOpacityProps } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 
 import { styles } from "./styles"
 import { FilterStatus } from "../../types/FilterStatus"
+import { Filter } from "../Filter"
 
-type Props = {
+type Props = TouchableOpacityProps &{
     icon: keyof typeof MaterialIcons.glyphMap
     title: string
-    //falta filtrar por status
+    status?: FilterStatus
+    onPress: () => void
 }
 
-export function BudgetHeader({ icon, title, status }: Props) {
+export function BudgetHeader({ icon, title, status, onPress }: Props) {
     return (
         <View style={styles.container}>
-            <MaterialIcons icon={icon} size={24}/>
-            <Text style={styles.title}>{title}</Text>
+            <TouchableOpacity style={styles.button} onPress={onPress}>
+                <MaterialIcons name={icon} size={24}/>
+            </TouchableOpacity>
+            <View style={styles.content}>
+                <Text style={styles.title}>{title}</Text>
+                {status && <Filter status={status}/> }
+            </View>
         </View>
     )
 }

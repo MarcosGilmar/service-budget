@@ -11,9 +11,6 @@ export const styles = StyleSheet.create({
         borderBottomWidth: 0.2,
         borderBottomColor: colors.gray[400]
     },
-    content: {
-        flexDirection: "column",
-    },
     title: {
         color: colors.principal["purple-base"],
         ...typography.titleLg

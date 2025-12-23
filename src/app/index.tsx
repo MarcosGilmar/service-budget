@@ -78,8 +78,8 @@ export default function Index() {
                 <StatusBar barStyle="dark-content"/>
                 <HomeHeader onPress={() => router.push("/budget")}/>
 
-                <View style={{ paddingTop: 24, flexDirection: "row", gap: 8 }}>
-                    <Input />
+                <View style={{ paddingVertical: 24, flexDirection: "row", gap: 8 }}>
+                    <Input icon={"search"} placeholder="Título ou cliente" containerStyle={{ flex: 1}}/>
                     <ButtonCircle icon={"tune"} color={colors.principal["purple-base"]}/>
                 </View>
 

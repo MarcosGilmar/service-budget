@@ -3,7 +3,6 @@ import { colors } from "../../theme";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
         flexDirection:"row",
         alignItems: "center",
         backgroundColor: colors.gray[100],
@@ -12,6 +11,8 @@ export const styles = StyleSheet.create({
         borderColor: colors.gray[200],
         gap: 8,
         paddingHorizontal: 16,
-        marginBottom: 24
+        height: 48
+    },
+    input: {
     }
 })
