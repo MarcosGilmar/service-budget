@@ -73,7 +73,6 @@ const DATA = [
 
 export default function Index() {
     const [search, useSearch] = useState("")
-    //const [statusFilter, setStatusFilter] = useState([FilterStatus.APPROVED])
 
     const filteredData = useMemo(() => {
         if(!search.trim()) {
