@@ -18,7 +18,7 @@ export function Item({ status, title, label, value}: Props) {
 
                 <View style={styles.row}>
                     <Text style={styles.label}>{label}</Text>
-                    <Text style={styles.value}>R${value}</Text>
+                    <Text style={styles.value}>R$ {value}</Text>
                 </View>
             </View>
                 <View style={styles.filter}>

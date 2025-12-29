@@ -4,18 +4,16 @@ import { MaterialIcons } from "@expo/vector-icons"
 import { styles } from "./styles"
 import { colors } from "../../theme"
 
-type Props = TouchableOpacityProps &{
-    isRounded: boolean
-    isSelected: boolean
+export type CheckboxProps = TouchableOpacityProps & {
+    isRounded?: boolean
+    isSelected?: boolean
 }
 
-export function Checkbox({ isSelected = false, isRounded = true, ...rest }: Props) {
+export function Checkbox({ isSelected = false, isRounded = true }: CheckboxProps) {
     return (
             <TouchableOpacity style={[
-                styles.container,
                 isRounded ? styles.rounded : styles.square,
                 isSelected && styles.selected,
-                {...rest}
             ]}>
                 {isSelected && !isRounded && (
                     <MaterialIcons name="check" size={15} color={colors.gray[100]}/>

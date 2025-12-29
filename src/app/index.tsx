@@ -72,7 +72,8 @@ const DATA = [
 ];
 
 export default function Index() {
-    const [ search, useSearch ] = useState("")
+    const [search, useSearch] = useState("")
+    //const [statusFilter, setStatusFilter] = useState([FilterStatus.APPROVED])
 
     const filteredData = useMemo(() => {
         if(!search.trim()) {
@@ -83,14 +84,12 @@ export default function Index() {
 
         return DATA.filter((item) => (
             item.title.toLowerCase().includes(searchLower) ||
-            item.label.toLocaleLowerCase().includes(searchLower)
+            item.label.toLowerCase().includes(searchLower) 
         ))
-
-
     }, [search])
 
     return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
             <View style={{ flex: 1, padding: 20 }}>
                 <StatusBar barStyle="dark-content"/>
                 <HomeHeader onPress={() => router.push("/budget")}/>
@@ -106,7 +105,7 @@ export default function Index() {
                     <ButtonCircle 
                         icon={"tune"} 
                         color={colors.principal["purple-base"]}
-                        onPress={() => router.push("/filters")}
+                        onPress={() => router.push("/(modals)/filters")}
                     />
                 </View>
 

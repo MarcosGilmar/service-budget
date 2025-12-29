@@ -41,6 +41,7 @@ export function ServicesWrapper() {
             <Button 
                 icon={"add"}
                 title="Adicionar serviço"
+                variant="white"
             />
         </View>
     )
