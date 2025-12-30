@@ -28,7 +28,6 @@ export const styles = StyleSheet.create({
         ...typography.textXs
     },
     children: {
-        padding: 20,
         gap: 12
     }
 })

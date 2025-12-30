@@ -1,6 +1,9 @@
 import { View, FlatList } from "react-native";
+
 import { ServiceItem } from "../ServiceItem";
 import { Button } from "../Button";
+
+import { styles } from "./styles";
 
 const DATA = [
 {
@@ -28,7 +31,7 @@ const DATA = [
 
 export function ServicesWrapper() {
     return (
-        <View>
+        <View style={styles.container}>
             {DATA.map((item) => (
                 <ServiceItem 
                     key={item.id}

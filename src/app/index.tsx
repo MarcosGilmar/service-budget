@@ -20,7 +20,9 @@ const DATA: ItemProps[] = [
     label: "Soluções Tecnológicas Beta",
     value: 22300,
     status: FilterStatus.APPROVED,
-    created_at: "2025-09-12"
+    created_at: "2025-09-12",
+    updated_at: "2025-12-12"
+
 },
 {
     id: "2",
@@ -28,7 +30,9 @@ const DATA: ItemProps[] = [
     label: "Alpha Consultoria",
     value: 15800,
     status: FilterStatus.SEND,
-    created_at: "2025-09-13"
+    created_at: "2025-09-13",
+    updated_at: "2025-12-12"
+
 },
 {
     id: "3",
@@ -36,7 +40,8 @@ const DATA: ItemProps[] = [
     label: "Agência Criativa Nimbus",
     value: 8500,
     status: FilterStatus.APPROVED,
-    created_at: "2025-09-14"
+    created_at: "2025-09-14",
+    updated_at: "2025-12-12"
 },
 {
     id: "4",
@@ -44,7 +49,9 @@ const DATA: ItemProps[] = [
     label: "Restaurante Sabor & Arte",
     value: 18200,
     status: FilterStatus.DENIED,
-    created_at: "2025-09-15"
+    created_at: "2025-09-15",
+    updated_at: "2025-12-12"
+
 },
 {
     id: "5",
@@ -52,7 +59,9 @@ const DATA: ItemProps[] = [
     label: "Indústrias Monte Verde",
     value: 35000,
     status: FilterStatus.APPROVED,
-    created_at: "2025-09-16"
+    created_at: "2025-09-16",
+    updated_at: "2025-12-12"
+
 },
 {
     id: "6",
@@ -60,7 +69,9 @@ const DATA: ItemProps[] = [
     label: "Distribuidora Central",
     value: 12400,
     status: FilterStatus.DRAFT,
-    created_at: "2025-09-17"
+    created_at: "2025-09-17",
+    updated_at: "2025-12-12"
+
 },
 {
     id: "7",
@@ -68,7 +79,9 @@ const DATA: ItemProps[] = [
     label: "Studio Criativo Aurora",
     value: 6900,
     status: FilterStatus.APPROVED,
-    created_at: "2025-09-18"
+    created_at: "2025-09-18",
+    updated_at: "2025-12-12"
+
 },
 {
     id: "8",
@@ -76,7 +89,9 @@ const DATA: ItemProps[] = [
     label: "Grupo Empresarial Horizonte",
     value: 19750,
     status: FilterStatus.SEND,
-    created_at: "2025-09-19"
+    created_at: "2025-09-19",
+    updated_at: "2025-12-12"
+
 },
 ];
 
@@ -156,6 +171,7 @@ export default function Index() {
                             value={item.value}
                             status={item.status}
                             created_at={item.created_at}
+                            updated_at={item.updated_at}
                         />
                     )}
                     showsVerticalScrollIndicator={false}

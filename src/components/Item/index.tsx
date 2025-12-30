@@ -10,6 +10,7 @@ export type ItemProps = FilterProps & {
     label: string
     value: number
     created_at: string
+    updated_at: string
 }
 
 export function Item({ id, status, title, label, value, created_at, ...rest}: ItemProps) {
