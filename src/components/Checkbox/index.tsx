@@ -9,12 +9,15 @@ export type CheckboxProps = TouchableOpacityProps & {
     isSelected?: boolean
 }
 
-export function Checkbox({ isSelected = false, isRounded = true }: CheckboxProps) {
+export function Checkbox({ isSelected = false, isRounded = true, ...rest }: CheckboxProps) {
     return (
-            <TouchableOpacity style={[
-                isRounded ? styles.rounded : styles.square,
-                isSelected && styles.selected,
-            ]}>
+            <TouchableOpacity 
+                style={[
+                    isRounded ? styles.rounded : styles.square,
+                    isSelected && styles.selected,
+                ]}
+                {...rest}
+            >
                 {isSelected && !isRounded && (
                     <MaterialIcons name="check" size={15} color={colors.gray[100]}/>
                 )}
