@@ -1,6 +1,5 @@
 import { router } from "expo-router";
 import { View, Text, Button, StatusBar, FlatList } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { use, useContext, useMemo, useState } from "react";
 
 import { colors, fontFamily } from "../theme";
@@ -12,6 +11,7 @@ import { Filter } from "../components/Filter";
 import { Item, ItemProps } from "../components/Item";
 import { FilterStatus } from "../types/FilterStatus";
 import { FilterContext } from "../context/FilterContext";
+import { DismissKeyboardView } from "../components/DismissKeyboardView";
 
 const DATA: ItemProps[] = [
 {
@@ -133,8 +133,8 @@ export default function Index() {
     }, [search, selectedStatus, sortBy])
 
     return (
-        <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
-            <View style={{ flex: 1, padding: 20 }}>
+        <DismissKeyboardView>
+            <View style={{ flex: 1 }}>
                 <StatusBar barStyle="dark-content"/>
                 <HomeHeader 
                     itemQuantity={filteredData.length} 
@@ -173,6 +173,6 @@ export default function Index() {
                 >
                 </FlatList>
             </View>
-        </SafeAreaView>
+        </DismissKeyboardView>
     )
 }

@@ -14,6 +14,7 @@ import { ServicesWrapper } from "../components/ServicesWrapper";
 import { Button } from "../components/Button";
 import { InvestmentWrapper } from "../components/InvestmentWrapper";
 import { colors } from "../theme";
+import { DismissKeyboardView } from "../components/DismissKeyboardView";
 
 const DATA = [
 {
@@ -52,7 +53,7 @@ export default function Budget() {
 
     const total = subtotal - discountValue
     return (
-        <SafeAreaView style={{ flex: 1, padding: 20 }}>
+        <DismissKeyboardView>
             <ScrollView
                 showsVerticalScrollIndicator={false}
             >
@@ -119,6 +120,6 @@ export default function Budget() {
                     />
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </DismissKeyboardView>
     )
 }
