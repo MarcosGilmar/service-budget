@@ -55,70 +55,71 @@ export default function Budget() {
     return (
         <DismissKeyboardView>
             <ScrollView
-                showsVerticalScrollIndicator={false}
-            >
-                <BudgetHeader 
-                    icon="arrow-back-ios"
-                    title="Orçamentos"   
-                    onPress={() => router.back()}
-                />
-                <Wrapper icon={"store"} title="Informações Gerais">
-                    <View style={{ padding: 20, gap: 12 }}>
-                        <Input 
-                            placeholder="Título"
-                            value={title}
-                            onChangeText={setTitle}
+                    showsVerticalScrollIndicator={false}
+                >
+                    <BudgetHeader 
+                        icon="arrow-back-ios"
+                        title="Orçamentos"   
+                        onPress={() => router.back()}
+                    />
+                    <Wrapper icon={"store"} title="Informações Gerais">
+                        <View style={{ padding: 20, gap: 12 }}>
+                            <Input 
+                                placeholder="Título"
+                                value={title}
+                                onChangeText={setTitle}
+                            />
+                            <Input 
+                                placeholder="Cliente"
+                                value={client}
+                                onChangeText={setClient}
+                            />
+                        </View>
+                    </Wrapper>
+
+                    <Wrapper icon="sell" title="Status">
+                        <StatusWrapper
+                            selected={status}
+                            onSelect={(newStatus) => setStatus(newStatus)}
                         />
-                        <Input 
-                            placeholder="Cliente"
-                            value={client}
-                            onChangeText={setClient}
+                    </Wrapper>
+
+                    <Wrapper icon="notes" title="Serviços inclusos">
+                        <ServicesWrapper 
+                            data={services}
+                            onPress={() => router.push("/(modals)/service")}
+                        />
+                    </Wrapper>
+
+                    <Wrapper icon="credit-card" title="Investimento">
+                        <InvestmentWrapper 
+                            subtotal={subtotal}
+                            serviceItemQuantity={services.length}
+                            discount={discountValue}
+                            total={total}
+                            onChangePercentage={setDiscount}
+                        />
+                    </Wrapper>
+
+                    <View style={{ 
+                        flexDirection: "row", 
+                        justifyContent: "center", 
+                        alignItems: "center",
+                        gap: 16,
+                        padding: 20,
+                        marginTop: 20,
+                        borderTopWidth: 0.2,
+                        borderTopColor: colors.gray[400]
+                    }}>
+                        <Button 
+                            title="Cancelar"
+                            variant="white"
+                        />
+                        <Button 
+                            icon={"check"}
+                            title="Salvar"
                         />
                     </View>
-                </Wrapper>
-
-                <Wrapper icon="sell" title="Status">
-                    <StatusWrapper
-                        selected={status}
-                        onSelect={(newStatus) => setStatus(newStatus)}
-                    />
-                </Wrapper>
-
-                <Wrapper icon="notes" title="Serviços inclusos">
-                    <ServicesWrapper 
-                        data={services}
-                    />
-                </Wrapper>
-
-                <Wrapper icon="credit-card" title="Investimento">
-                    <InvestmentWrapper 
-                        subtotal={subtotal}
-                        serviceItemQuantity={services.length}
-                        discount={discountValue}
-                        total={total}
-                        onChangePercentage={setDiscount}
-                    />
-                </Wrapper>
-
-                <View style={{ 
-                    flexDirection: "row", 
-                    justifyContent: "center", 
-                    alignItems: "center",
-                    gap: 16,
-                    padding: 20,
-                    marginTop: 20,
-                    borderTopWidth: 0.2,
-                    borderTopColor: colors.gray[400]
-                }}>
-                    <Button 
-                        title="Cancelar"
-                        variant="white"
-                    />
-                    <Button 
-                        icon={"check"}
-                        title="Salvar"
-                    />
-                </View>
             </ScrollView>
         </DismissKeyboardView>
     )

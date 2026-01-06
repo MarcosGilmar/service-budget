@@ -12,7 +12,7 @@ export type ThemeColors =
 type Props = TouchableOpacityProps & {
     icon: keyof typeof MaterialIcons.glyphMap,
     color: ThemeColors,
-    onPress: () => void
+    onPress?: () => void
 }
 
 export function ButtonCircle({ icon, color, onPress, ...rest }: Props) {

@@ -7,9 +7,10 @@ import { styles } from "./styles";
 
 type Props = {
     data: any[]
+    onPress: () => void
 }
 
-export function ServicesWrapper({ data }: Props) {
+export function ServicesWrapper({ data, onPress }: Props) {
     return (
         <View style={styles.container}>
             {data.map((item) => (
@@ -25,6 +26,7 @@ export function ServicesWrapper({ data }: Props) {
                 icon={"add"}
                 title="Adicionar serviço"
                 variant="white"
+                onPress={onPress}
             />
         </View>
     )
