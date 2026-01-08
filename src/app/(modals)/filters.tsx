@@ -11,7 +11,7 @@ import { colors } from "../../theme";
 
 import { CheckboxFilter } from "../../components/CheckboxFilter";
 import { Button } from "../../components/Button";
-import { FilterStatus } from "../../types/FilterStatus";
+import { FilterStatus } from "../../enums/FilterStatus";
 
 export default function Filters() {
     const {selectedStatus, sortBy, setFilters} = useContext(FilterContext)

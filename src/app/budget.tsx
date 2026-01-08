@@ -14,15 +14,16 @@ import { Button } from "../components/Button";
 import { InvestmentWrapper } from "../components/InvestmentWrapper";
 import { DismissKeyboardView } from "../components/DismissKeyboardView";
 
-import { FilterStatus } from "../types/FilterStatus";
+import { FilterStatus } from "../enums/FilterStatus";
 
 import { colors } from "../theme";
 
 import { BudgetContext } from "../context/BudgetContext";
 import { ServiceContext } from "../context/ServiceContext";
+import { ServiceStorageProps } from "../storage/serviceStorage";
 
 export default function Budget() {
-    const { serviceList} = useContext(ServiceContext)
+    const { serviceList, setSelectedService} = useContext(ServiceContext)
     const { addBudget } = useContext(BudgetContext)
 
     const [title, setTitle] = useState("")
@@ -81,6 +82,12 @@ export default function Budget() {
         }
     }
 
+    function handleEdit(service: ServiceStorageProps) {
+        setSelectedService(service)
+
+        router.push("/(modals)/service")
+    }
+
     return (
         <DismissKeyboardView>
             <ScrollView
@@ -116,7 +123,11 @@ export default function Budget() {
                     <Wrapper icon="notes" title="Serviços inclusos">
                         <ServicesWrapper 
                             data={serviceList}
-                            onPress={() => router.push("/(modals)/service")}
+                            onPress={() => (
+                                setSelectedService(null),
+                                router.push("/(modals)/service")
+                            )}
+                            onEdit={handleEdit}
                         />
                     </Wrapper>
 

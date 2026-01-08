@@ -6,7 +6,7 @@ import { BudgetHeader } from "../../components/BudgetHeader";
 import { DismissKeyboardView } from "../../components/DismissKeyboardView";
 import { Wrapper } from "../../components/Wrapper";
 
-import { FilterStatus } from "../../types/FilterStatus";
+import { FilterStatus } from "../../enums/FilterStatus";
 
 export default function Summary() {
     const params = useLocalSearchParams<{id: string}>()
@@ -17,7 +17,7 @@ export default function Summary() {
                 icon="arrow-back-ios"
                 title={`Orçamento #${params.id}`}
                 onPress={() => router.back()}
-                status={FilterStatus.SEND}
+                // status={FilterStatus.SEND}
             />
 
             {/* <Wrapper

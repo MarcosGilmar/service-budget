@@ -5,13 +5,15 @@ import { colors } from "../../theme";
 import { styles } from "./styles";
 
 export type ServiceItemProps = {
+    id?: string
     title: string
     description: string
     value: number
     quantity: number
+    onEdit?: () => void
 }
 
-export function ServiceItem({ title, description, value, quantity }: ServiceItemProps) {
+export function ServiceItem({ id, title, description, value, quantity, onEdit }: ServiceItemProps) {
     return (
         <View style={styles.container}>
             <View style={styles.label}>
@@ -28,7 +30,7 @@ export function ServiceItem({ title, description, value, quantity }: ServiceItem
                 <Text style={styles.value}>R$ {value}</Text>
                 <Text style={styles.quantity}>Qt: {quantity}</Text>
             </View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={onEdit}>
                 <MaterialIcons name="edit" size={15} color={colors.principal["purple-base"]}/>
             </TouchableOpacity>
         </View>

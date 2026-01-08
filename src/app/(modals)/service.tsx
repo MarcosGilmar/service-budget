@@ -1,7 +1,7 @@
 import { Alert, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { colors } from "../../theme";
 import { typography } from "../../theme/fontFamily";
@@ -11,12 +11,27 @@ import { Button } from "../../components/Button";
 import { ServiceContext } from "../../context/ServiceContext";
 
 export default function Service() {
-    const { addService} = useContext(ServiceContext)
+    const { addService, selectedService, updateService, setSelectedService} = useContext(ServiceContext)
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [value, setValue] = useState("")
     const [quantity, setQuantity] = useState<number>(1)
+
+    useEffect(() => {
+        if(selectedService) {
+            setTitle(selectedService.title)
+            setDescription(selectedService.description)
+            setValue(selectedService.value)
+            setQuantity(selectedService.quantity)
+        } else {
+            setTitle("")
+            setDescription("")
+            setValue("")
+            setQuantity(1)
+        }
+    }
+    , [selectedService])
 
     function handleIncrement() { 
         setQuantity((prev) => prev + 1)
@@ -46,6 +61,7 @@ export default function Service() {
         }
 
         const newService = {
+            id: selectedService?.id || Date.now().toString(),
             title: title,
             description: description,
             value: String(formattedValue),
@@ -53,8 +69,13 @@ export default function Service() {
         }
 
         try {
-            await addService(newService)
+            if(selectedService) {
+                await updateService(newService)
+            } else {
+                await addService(newService)
+            }
             router.back()
+            setSelectedService(null)
         } catch (error) {
             console.log("Erro: ", error)
             Alert.alert("Erro","Não foi possível salvar o serviço!")        }
@@ -73,7 +94,10 @@ export default function Service() {
                         <View style={styles.header}>
                             <Text style={styles.title}>Serviço</Text>
                             <TouchableOpacity 
-                                onPress={() => router.back()}
+                                onPress={() => {
+                                    router.back()
+                                    setSelectedService(null)
+                                }}
                             >
                                 <MaterialIcons name="close" size={25}/>
                             </TouchableOpacity>

@@ -2,7 +2,7 @@ import { Text, View, TouchableOpacity, TouchableOpacityProps } from "react-nativ
 
 import { Filter, FilterProps } from "../Filter"
 import { styles } from "./styles"
-import { FilterStatus } from "../../types/FilterStatus"
+import { FilterStatus } from "../../enums/FilterStatus"
 import { router } from "expo-router"
 
 export type ItemProps = FilterProps & TouchableOpacityProps & {
@@ -26,7 +26,7 @@ export function Item({ id, status, title, client, value, created_at, onPress, ..
 
                 <View style={styles.row}>
                     <Text style={styles.label}>{client}</Text>
-                    <Text style={styles.value}>R$ {value}</Text>
+                    <Text style={styles.value}>R$ {value.toFixed(2)}</Text>
                 </View>
             </View>
                 <View style={styles.filter}>

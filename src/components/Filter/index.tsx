@@ -3,7 +3,7 @@ import { MaterialIcons } from "@expo/vector-icons"
 
 import { styles } from "./styles"
 import { FilterStatusConfig, FilterStatusProps } from "../../shared/FilterStatusConfig"
-import { FilterStatus } from "../../types/FilterStatus"
+import { FilterStatus } from "../../enums/FilterStatus"
 
 export type FilterProps = {
     status: FilterStatus

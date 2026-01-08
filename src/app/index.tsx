@@ -9,7 +9,7 @@ import { Input } from "../components/Input";
 import { ButtonCircle } from "../components/ButtonCircle";
 import { Filter } from "../components/Filter";
 import { Item, ItemProps } from "../components/Item";
-import { FilterStatus } from "../types/FilterStatus";
+import { FilterStatus } from "../enums/FilterStatus";
 import { FilterContext } from "../context/FilterContext";
 import { DismissKeyboardView } from "../components/DismissKeyboardView";
 import { BudgetContext } from "../context/BudgetContext";

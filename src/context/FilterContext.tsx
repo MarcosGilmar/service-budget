@@ -1,5 +1,5 @@
 import { createContext, useState, useCallback, ReactNode } from "react";
-import { FilterStatus } from "../types/FilterStatus";
+import { FilterStatus } from "../enums/FilterStatus";
 
 export type SortOption = "biggestValue" | "smallestValue" | "oldest" | "latest" | null
 

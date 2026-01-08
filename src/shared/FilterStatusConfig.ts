@@ -1,6 +1,6 @@
 import { ThemeColors } from "../components/ButtonCircle"
 import { colors } from "../theme"
-import { FilterStatus } from "../types/FilterStatus"
+import { FilterStatus } from "../enums/FilterStatus"
 
 export type FilterStatusProps = {
     label: string

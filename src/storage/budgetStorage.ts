@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import { ServiceItemProps } from "../components/ServiceItem";
 import { InvestmentProps } from "../components/InvestmentWrapper";
-import { FilterStatus } from "../types/FilterStatus";
+import { FilterStatus } from "../enums/FilterStatus";
 
 const ITEMS_BUDGET_KEY = "@budget:items"
 

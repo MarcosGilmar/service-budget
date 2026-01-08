@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Checkbox, CheckboxProps } from "../../components/Checkbox";
 import { Filter } from "../../components/Filter";
 
-import { FilterStatus } from "../../types/FilterStatus";
+import { FilterStatus } from "../../enums/FilterStatus";
 import { styles } from "./styles";
 
 import { CheckboxFilter } from "../CheckboxFilter";

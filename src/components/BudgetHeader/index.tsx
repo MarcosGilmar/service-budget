@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity, TouchableOpacityProps } from "react-nativ
 import { MaterialIcons } from "@expo/vector-icons"
 
 import { styles } from "./styles"
-import { FilterStatus } from "../../types/FilterStatus"
+import { FilterStatus } from "../../enums/FilterStatus"
 import { Filter } from "../Filter"
 
 type Props = TouchableOpacityProps &{

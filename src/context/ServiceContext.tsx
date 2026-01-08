@@ -3,13 +3,17 @@ import { serviceStorage, ServiceStorageProps } from "../storage/serviceStorage"
 
 type ServiceContextData = {
     serviceList: ServiceStorageProps[]
+    selectedService: ServiceStorageProps | null
     addService: (newService: ServiceStorageProps) => Promise<void>
+    updateService: (updatedService: ServiceStorageProps) => Promise<void>
+    setSelectedService: (selectedService: ServiceStorageProps | null) => void
 }
 
 export const ServiceContext = createContext<ServiceContextData>({} as ServiceContextData)
 
 export function ServiceProvider({children}: {children: ReactNode}) {
     const [serviceList, setServiceList] = useState<ServiceStorageProps[]>([])
+    const [selectedService, setSelectedService] = useState<ServiceStorageProps | null>(null)
 
     async function loadData() {
         const items = await serviceStorage.get()
@@ -27,11 +31,24 @@ export function ServiceProvider({children}: {children: ReactNode}) {
         await serviceStorage.save(newList)
     }
 
+    async function updateService(updatedService: ServiceStorageProps) {
+        const newList = serviceList.map((service) => (
+            service.id === updatedService.id ? updatedService : service 
+        ))
+
+        setServiceList(newList)
+
+        await serviceStorage.save(newList)
+    }
+
     return (
         <ServiceContext.Provider
             value={{
                 serviceList,
-                addService
+                selectedService,
+                addService,
+                updateService,
+                setSelectedService
             }}
         >
             {children}

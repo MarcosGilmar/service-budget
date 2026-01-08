@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const ITEMS_SERVICE_KEY = "@service:items"
 
 export type ServiceStorageProps = {
+    id: string
     title: string
     description: string,
     value: string
